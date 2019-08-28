@@ -23,3 +23,30 @@ df.head()
 
 # To print some last rows. use df.tail(n) to specify the last n number of rows to fetch.
 df.tail()
+
+# number of columns
+df.columns
+
+# Specify column names to get the values of that particular column :: df['day']
+# type of the column is a series type(df['event'])
+# to print only the columns required df[['event', 'day', 'temperature']]
+
+# maximum temperature
+# other operations are mean, min, std etc
+print(df['maximum temperature'].max())
+
+# statistics of the data set
+print(df.describe())
+
+# querying
+print(df[df['maximum temperature'] > 60])
+print(df[df['maximum temperature'] == df['maximum temperature'].max()] )
+print(df[['date' , 'snow fall']][df['maximum temperature'] == df['maximum temperature'].max()] )
+
+# index range
+# set a different column as index. use inplace = true to modify the dataframe
+df.set_index('date', inplace=True)
+print(df.loc['19-11-2016'])
+
+#reset index to original one
+df.reset_index(inplace=True)
